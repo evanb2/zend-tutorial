@@ -2,3 +2,12 @@ Modules
 -------
 
 * The controller key must be unique across all modules, so we prefix it with out module name
+
+Routing and Controllers
+-----------------------
+
+* Each page of the application is known as an action and actions are grouped into controllers within modules.
+* Actions are : - index
+                - add
+                - edit
+                - delete
