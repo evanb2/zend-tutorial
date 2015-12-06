@@ -1,0 +1,4 @@
+Modules
+-------
+
+* The controller key must be unique across all modules, so we prefix it with out module name
