@@ -12,5 +12,16 @@
  */
 
 return array(
-    // ...
+    'db' => [
+        'driver'         => 'Pdo',
+        'dsn'            => 'mysql:dbname=zend-tutorial;host=localhost',
+        'driver_options' => [
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            'Zend\Db\Adapter\Adaptor' => 'Zend\Db\Adapter\AdaptorServiceFactory',
+        ],
+    ],
 );
