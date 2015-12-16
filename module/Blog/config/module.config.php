@@ -7,8 +7,8 @@ return [
         ],
     ],
     'controllers' => [
-        'invokables' => [
-            'Blog\Controller\List' => 'Blog\Controller\ListController'
+        'factories' => [
+            'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
         ]
     ],
     'router' => [
