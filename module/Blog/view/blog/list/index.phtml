@@ -1,9 +1,10 @@
-<?php
+<h1>Blog</h1>
 
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
-
-//phpinfo();
-
-?>
-<h1>Blog\ListController::indexAction()</h1>
+<?php foreach ($this->posts as $post): ?>
+    <article>
+        <h1 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h1>
+        <p>
+            <?= $post->getText() ?>
+        </p>
+    </article>
+<?php endforeach ?>
