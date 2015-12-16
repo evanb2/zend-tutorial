@@ -8,10 +8,10 @@
 
 namespace Blog;
 
-
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
-class Module implements ConfigProviderInterface, ConfigProviderInterface
+class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
     /**
      * Return an array for passing to Zend\Loader\AutoloaderFactory
