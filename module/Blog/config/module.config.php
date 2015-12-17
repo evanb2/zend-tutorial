@@ -43,6 +43,16 @@ return [
                                 'id' => '[1-9]\d*'
                             ]
                         ]
+                    ],
+                    'add'    => [
+                        'type'    => 'literal',
+                        'options' => [
+                            'route'    => '/add',
+                            'defaults' => [
+                                'controller' => 'Blog\Controller\Write',
+                                'action'     => 'add'
+                            ]
+                        ]
                     ]
                 ]
             ]
