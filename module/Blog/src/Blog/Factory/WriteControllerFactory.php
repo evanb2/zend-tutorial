@@ -9,7 +9,7 @@
 namespace Blog\Factory;
 
 
-use Blog\src\Blog\Controller\WriteController;
+use Blog\Controller\WriteController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

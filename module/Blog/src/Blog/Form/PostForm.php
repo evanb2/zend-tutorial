@@ -13,8 +13,10 @@ use Zend\Form\Form;
 
 class PostForm extends Form
 {
-    public function __construct()
+    public function __construct($name = NULL, $options = [])
     {
+        parent::__construct($name, $options);
+
         $this->add([
             'name' => 'post-fieldset',
             'type' => 'Blog\Form\PostFieldset'

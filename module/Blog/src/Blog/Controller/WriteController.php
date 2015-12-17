@@ -21,10 +21,11 @@ class WriteController extends AbstractActionController
 
     /**
      * WriteController constructor.
-     * @param $postService
-     * @param $postInsertForm
+     * @param PostServiceInterface $postService
+     * @param FormInterface $postForm
+     * @internal param $postInsertForm
      */
-    public function __construct(PostServiceInterface $postService, FormInterface $postInsertForm)
+    public function __construct(PostServiceInterface $postService, FormInterface $postForm)
     {
         $this->postService = $postService;
         $this->postForm    = $postForm;

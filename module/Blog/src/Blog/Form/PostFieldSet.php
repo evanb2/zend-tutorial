@@ -13,8 +13,10 @@ use Zend\Form\Fieldset;
 
 class PostFieldSet extends Fieldset
 {
-    public function __construct()
+    public function __construct($name = NULL, $options = [])
     {
+        parent::__construct($name, $options);
+
         $this->add([
             'type' => 'hidden',
             'name' => 'id'
