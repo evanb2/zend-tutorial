@@ -42,4 +42,9 @@ class PostService implements PostServiceInterface
     {
         return $this->postMapper->find($id);
     }
+
+    public function savePost(PostInterface $post)
+    {
+        return $this->postMapper->save($post);
+    }
 }
