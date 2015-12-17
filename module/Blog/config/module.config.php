@@ -12,8 +12,9 @@ return [
 //    ],
     'service_manager' => [
         'factories' => [
-            'Blog\Service\PostServiceInterface' => 'Blog\Service\PostServiceFactory',
+            'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
             'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory',
+            'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory'
         ]
     ],
     'view_manager' => [
