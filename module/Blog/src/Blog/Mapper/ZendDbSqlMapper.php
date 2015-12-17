@@ -28,16 +28,18 @@ class ZendDbSqlMapper implements PostMapperInterface
 
     public function __construct(AdapterInterface $dbAdapter, HydratorInterface $hydrator, PostInterface $postPrototype)
     {
-        $this->dbAdapter = $dbAdapter;
+        $this->dbAdapter     = $dbAdapter;
+        $this->hydrator      = $hydrator;
+        $this->postPrototype = $postPrototype;
     }
 
     public function find($id)
     {
-        $sql = new Sql($this->dbAdapter);
+        $sql    = new Sql($this->dbAdapter);
         $select = $sql->select('posts');
         $select->where(['id = ?' => $id]);
 
-        $stmt = $sql->prepareStatementForSqlObject($select);
+        $stmt   = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
         if ($result instanceof ResultInterface && $result->isQueryResult() && $result->getAffectedRows()) {
@@ -49,10 +51,10 @@ class ZendDbSqlMapper implements PostMapperInterface
 
     public function findAll()
     {
-        $sql = new Sql($this->dbAdapter);
+        $sql    = new Sql($this->dbAdapter);
         $select = $sql->select('posts');
 
-        $stmt = $sql->prepareStatementForSqlObject($select);
+        $stmt   = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
         if ($result instanceof ResultInterface && $result->isQueryResult()) {

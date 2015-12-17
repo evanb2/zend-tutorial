@@ -30,4 +30,19 @@ class ListController extends AbstractActionController
         # You can also just return an array without calling ViewModel
 //        return ['posts' => $this->postService->findAllPosts()];
     }
+
+    public function detailAction()
+    {
+        $id = $this->params()->fromRoute('id');
+
+        try {
+            $post = $this->postService->findPost($id);
+        } catch (\InvalidArgumentException $ex) {
+            return $this->redirect()->toRoute('blog');
+        }
+
+        return new ViewModel([
+            'post' => $post
+        ]);
+    }
 }
