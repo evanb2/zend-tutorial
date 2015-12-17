@@ -15,7 +15,8 @@ return [
     ],
     'controllers'     => [
         'factories' => [
-            'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory',
+            'Blog\Controller\List'  => 'Blog\Factory\ListControllerFactory',
+            'Blog\Controller\Write' => 'Blog\Factory\WriteControllerFactory',
         ]
     ],
     'router'          => [
@@ -30,12 +31,12 @@ return [
                     ]
                 ],
                 'may_terminate' => TRUE,
-                'child_routes' => [
+                'child_routes'  => [
                     'detail' => [
-                        'type' => 'segment',
+                        'type'    => 'segment',
                         'options' => [
-                            'route' => '/:id',
-                            'defaults' => [
+                            'route'       => '/:id',
+                            'defaults'    => [
                                 'action' => 'detail'
                             ],
                             'constraints' => [
