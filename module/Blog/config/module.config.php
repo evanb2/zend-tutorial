@@ -2,8 +2,8 @@
 
 return [
     'service_manager' => [
-        'invokables' => [
-            'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService',
+        'factories' => [
+            'Blog\Service\PostServiceInterface' => 'Blog\Service\PostServiceFactory',
         ]
     ],
     'view_manager' => [
