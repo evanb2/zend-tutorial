@@ -18,13 +18,16 @@ class PostForm extends Form
         parent::__construct($name, $options);
 
         $this->add([
-            'name' => 'post-fieldset',
-            'type' => 'Blog\Form\PostFieldset'
+            'name'    => 'post-fieldset',
+            'type'    => 'Blog\Form\PostFieldset',
+            'options' => [
+                'use_as_base_fieldset' => TRUE
+            ]
         ]);
 
         $this->add([
-            'type' => 'submit',
-            'name' => 'submit',
+            'type'       => 'submit',
+            'name'       => 'submit',
             'attributes' => [
                 'value' => 'Insert new Post'
             ]
