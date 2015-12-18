@@ -5,8 +5,8 @@ return [
         'factories' => [
             'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
             'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory',
-            'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory'
-        ]
+            'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory',
+        ],
     ],
     'view_manager'    => [
         'template_path_stack' => [
@@ -15,9 +15,10 @@ return [
     ],
     'controllers'     => [
         'factories' => [
-            'Blog\Controller\List'  => 'Blog\Factory\ListControllerFactory',
-            'Blog\Controller\Write' => 'Blog\Factory\WriteControllerFactory',
-        ]
+            'Blog\Controller\List'   => 'Blog\Factory\ListControllerFactory',
+            'Blog\Controller\Write'  => 'Blog\Factory\WriteControllerFactory',
+            'Blog\Controller\Delete' => 'Blog\Factory\DeleteControllerFactory',
+        ],
     ],
     'router'          => [
         'routes' => [
@@ -28,7 +29,7 @@ return [
                     'defaults' => [
                         'controller' => 'Blog\Controller\List',
                         'action'     => 'index',
-                    ]
+                    ],
                 ],
                 'may_terminate' => TRUE,
                 'child_routes'  => [
@@ -37,12 +38,12 @@ return [
                         'options' => [
                             'route'       => '/:id',
                             'defaults'    => [
-                                'action' => 'detail'
+                                'action' => 'detail',
                             ],
                             'constraints' => [
-                                'id' => '[1-9]\d*'
-                            ]
-                        ]
+                                'id' => '[1-9]\d*',
+                            ],
+                        ],
                     ],
                     'add'    => [
                         'type'    => 'literal',
@@ -50,9 +51,9 @@ return [
                             'route'    => '/add',
                             'defaults' => [
                                 'controller' => 'Blog\Controller\Write',
-                                'action'     => 'add'
-                            ]
-                        ]
+                                'action'     => 'add',
+                            ],
+                        ],
                     ],
                     'edit'   => [
                         'type'    => 'segment',
@@ -60,12 +61,12 @@ return [
                             'route'       => '/edit/:id',
                             'defaults'    => [
                                 'controller' => 'Blog\Controller\Write',
-                                'action'     => 'edit'
+                                'action'     => 'edit',
                             ],
                             'constraints' => [
-                                'id' => '\d+'
-                            ]
-                        ]
+                                'id' => '\d+',
+                            ],
+                        ],
                     ],
                     'delete' => [
                         'type'    => 'segment',
@@ -73,15 +74,15 @@ return [
                             'route'       => '/delete/:id',
                             'defaults'    => [
                                 'controller' => 'Blog\Controller\Delete',
-                                'action'     => 'delete'
+                                'action'     => 'delete',
                             ],
                             'constraints' => [
-                                'id' => '\d+'
-                            ]
-                        ]
+                                'id' => '\d+',
+                            ],
+                        ],
                     ],
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ],
 ];

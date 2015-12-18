@@ -26,13 +26,15 @@ class DeleteController extends AbstractActionController
         $this->postService = $postService;
     }
 
-    public  function deleteAction()
+    public function deleteAction()
     {
         try {
             $post = $this->postService->findPost($this->params('id'));
         } catch (\InvalidArgumentException $e) {
             return $this->redirect()->toRoute('blog');
         }
+
+        $request = $this->getRequest();
 
         if ($request->isPost()) {
             $del = $request->getPost('delete_confirmation', 'no');
