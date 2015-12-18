@@ -67,8 +67,21 @@ return [
                             ]
                         ]
                     ],
+                    'delete' => [
+                        'type'    => 'segment',
+                        'options' => [
+                            'route'       => '/delete/:id',
+                            'defaults'    => [
+                                'controller' => 'Blog\Controller\Delete',
+                                'action'     => 'delete'
+                            ],
+                            'constraints' => [
+                                'id' => '\d+'
+                            ]
+                        ]
+                    ],
                 ]
             ]
         ]
-    ]
+    ],
 ];

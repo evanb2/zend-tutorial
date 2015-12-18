@@ -24,8 +24,14 @@ interface PostServiceInterface
     public function findPost($id);
 
     /**
-     * @param PostInterface $blog
+     * @param PostInterface $post
      * @return PostInterface
      */
     public function savePost(PostInterface $post);
+
+    /**
+     * @param PostInterface $post
+     * @return bool
+     */
+    public function deletePost(PostInterface $post);
 }

@@ -28,6 +28,12 @@ class ZendDbSqlMapper implements PostMapperInterface
 
     protected $postPrototype;
 
+    /**
+     * ZendDbSqlMapper constructor.
+     * @param AdapterInterface $dbAdapter
+     * @param HydratorInterface $hydrator
+     * @param PostInterface $postPrototype
+     */
     public function __construct(AdapterInterface $dbAdapter, HydratorInterface $hydrator, PostInterface $postPrototype)
     {
         $this->dbAdapter     = $dbAdapter;
@@ -35,6 +41,9 @@ class ZendDbSqlMapper implements PostMapperInterface
         $this->postPrototype = $postPrototype;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function find($id)
     {
         $sql    = new Sql($this->dbAdapter);
@@ -51,6 +60,9 @@ class ZendDbSqlMapper implements PostMapperInterface
         throw new \InvalidArgumentException("Blog with given ID:{$id} not found.");
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function findAll()
     {
         $sql    = new Sql($this->dbAdapter);
@@ -68,6 +80,9 @@ class ZendDbSqlMapper implements PostMapperInterface
         return [];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function save(PostInterface $postObject)
     {
         $postData = $this->hydrator->extract($postObject);
@@ -95,5 +110,13 @@ class ZendDbSqlMapper implements PostMapperInterface
         }
 
         throw new \Exception("Database error.");
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function delete(PostInterface $postObject)
+    {
+
     }
 }
