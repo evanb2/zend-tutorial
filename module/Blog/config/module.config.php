@@ -53,7 +53,20 @@ return [
                                 'action'     => 'add'
                             ]
                         ]
-                    ]
+                    ],
+                    'edit'   => [
+                        'type'    => 'segment',
+                        'options' => [
+                            'route'       => '/edit/:id',
+                            'defaults'    => [
+                                'controller' => 'Blog\Controller\Write',
+                                'action'     => 'edit'
+                            ],
+                            'constraints' => [
+                                'id' => '\d+'
+                            ]
+                        ]
+                    ],
                 ]
             ]
         ]
