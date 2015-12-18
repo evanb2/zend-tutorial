@@ -9,6 +9,7 @@
 namespace Blog\Service;
 
 use Blog\Mapper\PostMapperInterface;
+use Blog\Model\PostInterface;
 
 class PostService implements PostServiceInterface
 {

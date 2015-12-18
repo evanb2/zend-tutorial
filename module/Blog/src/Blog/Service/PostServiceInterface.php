@@ -27,5 +27,5 @@ interface PostServiceInterface
      * @param PostInterface $blog
      * @return PostInterface
      */
-    public function savePost(PostInterface $blog);
+    public function savePost(PostInterface $post);
 }
