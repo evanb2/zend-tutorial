@@ -72,8 +72,8 @@ class ZendDbSqlMapper implements PostMapperInterface
     {
         $postData = $this->hydrator->extract($postObject);
         unset($postData['id']);
-
-        if ($postData->getId()) {
+        
+        if ($postObject->getId()) {
             $action = new Update('posts');
             $action->set($postData);
             $action->where(['id = ?' => $postObject->getId()]);

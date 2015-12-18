@@ -41,6 +41,7 @@ class WriteController extends AbstractActionController
 
             if ($this->postForm->isValid()) {
                 try {
+//                    \Zend\Debug\Debug::dump($this->postForm->getData());die();
                     $this->postService->savePost($this->postForm->getData());
 
                     return $this->redirect()->toRoute('blog');
